@@ -1,6 +1,6 @@
 {
   "name": "nodemailer-cli",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A minimal CLI for nodemailer.",
   "main": "index.js",
   "bin": {
