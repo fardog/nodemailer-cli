@@ -1,36 +1,36 @@
 {
-	"name": "nodemailer-cli",
-	"version": "0.0.1",
-	"description": "A minimal CLI for nodemailer.",
-	"main": "index.js",
-	"bin": {
-		"nodemailer": "./bin/cli.js"
-	},
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"repository": {
+  "name": "nodemailer-cli",
+  "version": "0.0.1",
+  "description": "A minimal CLI for nodemailer.",
+  "main": "index.js",
+  "bin": {
+    "nodemailer": "./bin/cli.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
     "type": "git",
     "url": "git://github.com/fardog/nodemailer-cli.git"
   },
-	"bugs": {
+  "bugs": {
     "url": "https://github.com/fardog/nodemailer-cli/issues"
   },
   "homepage": "https://github.com/fardog/nodemailer-cli",
-	"engines": {
+  "engines": {
     "node": ">=0.10.29"
   },
-	"keywords": [
-		"smtp",
-		"mail",
-		"relay",
-		"nodemailer"
-	],
-	"author": "Nathan Wittstock <nate@milkandtang.com>",
-	"license": "MIT",
-	"dependencies": {
-		"joi": "^4.6.2",
-		"nodemailer": "^1.2.1",
-		"nomnom": "^1.8.0"
-	}
+  "keywords": [
+    "smtp",
+    "mail",
+    "relay",
+    "nodemailer"
+  ],
+  "author": "Nathan Wittstock <nate@milkandtang.com>",
+  "license": "MIT",
+  "dependencies": {
+    "isemail": "^1.1.1",
+    "nodemailer": "^1.2.1",
+    "nomnom": "^1.8.0"
+  }
 }

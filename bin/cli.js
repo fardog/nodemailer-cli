@@ -3,14 +3,14 @@
 // PresSTORE uses <to> <from> <subject> <path_to_file_with_body> so we'll need
 //  to support that.
 
-var Joi = require('joi');
 var fs = require('fs');
+var isemail = require('isemail');
 
 var emailBody = null;
 
 var validateEmail = function(name, email) {
-  var result = Joi.validate(email, Joi.string().email());
-  if (result.error) {
+  var result = isemail(email);
+  if (!result) {
     return "<" + name + "> must be a valid email address.";
   }
   return false;
