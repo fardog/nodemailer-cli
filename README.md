@@ -1,4 +1,4 @@
-# nodemailer-cli 0.1.0
+# nodemailer-cli 0.1.1
 
 A command line interface for sending email, wrapped around [nodemailer][nodemailer]. 
 
@@ -33,6 +33,7 @@ Options:
    -j, --subject    The string to be used as the email's subject.
    --body           A file to use as the message body.
    --attachment     A path to a file that should be attached. List multiple attachments by appending multiple --attachment parameters.
+   --version        print version and exit
 ```
 
 ## Environment Variables
@@ -48,6 +49,9 @@ Some environment variables can be used in place of CLI options. CLI options over
 
 
 ## History
+
+- **v0.1.1**  
+Adds flag to print version of cli and nodemailer.
 
 - **v0.1.0**  
 Cleans up command line switches, and adds support for attachments.
