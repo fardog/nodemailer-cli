@@ -1,8 +1,5 @@
 #!/usr/bin/env node
 
-// PresSTORE uses <to> <from> <subject> <path_to_file_with_body> so we'll need
-//  to support that.
-
 var fs = require('fs');
 var isemail = require('isemail');
 
@@ -58,6 +55,18 @@ var options = require('nomnom')
     flag: true,
     help: 'If set, SSL will not be used when sending mail.'
   })
+  .option('subject', {
+    abbr: 'j',
+    help: 'The string to be used as the email\'s subject.'
+  })
+  .option('body', {
+    help: "A file to use as the message body.",
+    callback: readEmailBodyFile
+  })
+  .option('attachment', {
+    help: 'A path to a file that should be attached. List multiple attachments by appending multiple --attachment parameters.',
+    list: true
+  })
   .option('to', {
     position: 0,
     required: true,
@@ -70,39 +79,36 @@ var options = require('nomnom')
     help: 'Email address that the message should be from.',
     callback: validateEmail.bind(this, 'from')
   })
-  .option('subject', {
+  .option('bodyText', {
     position: 2,
-    required: true,
-    help: 'The string to be used as the email\'s subject.'
-  })
-  .option('filename', {
-    position: 3,
-    required: true,
-    help: "Path to the file to be used as the body of the email.",
-    callback: readEmailBodyFile
+    help: 'The plaintext message body.'
   })
   .parse();
 
-if (options.nossl === true) {
-  options.useSSL = false;
-}
-else {
-  options.useSSL = true;
-}
+// we have a "no ssl" flag, so we need to invert it
+options.useSSL = options.nossl ? false : true;
 
 var Relay = require('../lib');
 var relay = new Relay(options);
 
+// build the mail data object
 var data = {
   from: options.from,
   to: options.to,
   subject: options.subject,
-  text: emailBody
+  text: emailBody || options.bodyText,
+  attachments: options.attachment ? options.attachment.map(function (attachment) { return { path: attachment }; }) : null
 };
+
+// nomnom won't allow this sort of logic, so we need to do it after the fact
+if (!options.subject && !data.text) {
+  console.error("ERROR: You must have at least a subject or a message body.");
+  process.exit(1);
+}
 
 relay.sendMail(data, function(err, result) {
   if (err) {
-    console.error(err)
+    console.error(err);
   }
   else {
     console.log("Sent successfully: " + result.response);
