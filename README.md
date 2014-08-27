@@ -1,4 +1,4 @@
-# nodemailer-cli 0.0.1
+# nodemailer-cli 0.1.0
 
 A command line interface for sending email, wrapped around [nodemailer][nodemailer]. 
 
@@ -17,12 +17,11 @@ npm install -g nodemailer-cli
 ```
 $ nodemailer --help
 
-Usage: nodemailer <to> <from> <subject> <filename> [options]
+Usage: nodemailer <to> <from> [bodyText] [options]
 
 to           Email address to send the mail to.
 from         Email address that the message should be from.
-subject      The string to be used as the email's subject.
-filename     Path to the file to be used as the body of the email.
+bodyText     The plaintext message body.
 
 Options:
    -t, --service    The nodemailer service identifier, if any.
@@ -31,11 +30,14 @@ Options:
    -s, --server     The SMTP server that mail will be delivered to.
    -r, --port       The port to use when contacting the SMTP server.  [465]
    -n, --nossl      If set, SSL will not be used when sending mail.
+   -j, --subject    The string to be used as the email's subject.
+   --body           A file to use as the message body.
+   --attachment     A path to a file that should be attached. List multiple attachments by appending multiple --attachment parameters.
 ```
 
 ## Environment Variables
 
-Some environment variables can be used in place of CLI options.
+Some environment variables can be used in place of CLI options. CLI options override these environment variables, if used, so these can be thought of as defaults.
 
 - **SMTP_SERVER** The hostname of the SMTP server to be used.
 - **SMTP_PORT** The port on the SMTP server that should be connected to.
@@ -47,8 +49,11 @@ Some environment variables can be used in place of CLI options.
 
 ## History
 
+- **v0.1.0**  
+Cleans up command line switches, and adds support for attachments.
+
 - **v0.0.1**  
-Initial Release
+Initial Release.
 
 
 
