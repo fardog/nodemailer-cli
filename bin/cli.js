@@ -83,6 +83,15 @@ var options = require('nomnom')
     position: 2,
     help: 'The plaintext message body.'
   })
+  .option('version', {
+    flag: true,
+    help: 'print version and exit',
+    callback: function() {
+      var data = require('../package.json');
+      var mailer = require('nodemailer/package.json');
+      return "version " + data.version + ", nodemailer: " + mailer.version;
+    }
+  })
   .parse();
 
 // we have a "no ssl" flag, so we need to invert it
