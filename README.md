@@ -1,4 +1,4 @@
-# nodemailer-cli 0.1.1
+# nodemailer-cli 0.1.2
 
 A command line interface for sending email, wrapped around [nodemailer][nodemailer]. 
 
@@ -49,6 +49,9 @@ Some environment variables can be used in place of CLI options. CLI options over
 
 
 ## History
+
+- **v0.1.2**  
+Adds preferGlobal to the package, to warn if installed locally.
 
 - **v0.1.1**  
 Adds flag to print version of cli and nodemailer.
