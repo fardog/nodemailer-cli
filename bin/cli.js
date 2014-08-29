@@ -1,17 +1,9 @@
 #!/usr/bin/env node
 
 var fs = require('fs');
-var isemail = require('isemail');
+var validateEmails = require('../lib').validateEmails;
 
 var emailBody = null;
-
-var validateEmail = function(name, email) {
-  var result = isemail(email);
-  if (!result) {
-    return "<" + name + "> must be a valid email address.";
-  }
-  return false;
-};
 
 var readEmailBodyFile = function(filename) {
   try {
@@ -59,6 +51,18 @@ var options = require('nomnom')
     abbr: 'j',
     help: 'The string to be used as the email\'s subject.'
   })
+  .option('cc', {
+    help: 'An email address to Carbon Copy. List multiple recipients by appending multiple --cc parameters.',
+    callback: validateEmails.bind(this, 'cc', true)
+  })
+  .option('bcc', {
+    help: 'An email address to Blind Carbon Copy. List multiple recipients by appending multiple -bcc parameters.',
+    callback: validateEmails.bind(this, 'bcc', true)
+  })
+  .option('replyTo', {
+    help: 'An email address that should receive replies if a recipient replies to your message.',
+    callback: validateEmails.bind(this, 'replyTo', false)
+  })
   .option('body', {
     help: "A file to use as the message body.",
     callback: readEmailBodyFile
@@ -70,14 +74,14 @@ var options = require('nomnom')
   .option('to', {
     position: 0,
     required: true,
-    help: 'Email address to send the mail to.',
-    callback: validateEmail.bind(this, 'to')
+    help: 'Email address, or comma separated list of email addresses to send mail to.',
+    callback: validateEmails.bind(this, 'to', true)
   })
   .option('from', {
     position: 1,
     required: true,
     help: 'Email address that the message should be from.',
-    callback: validateEmail.bind(this, 'from')
+    callback: validateEmails.bind(this, 'from', false)
   })
   .option('bodyText', {
     position: 2,
@@ -87,9 +91,9 @@ var options = require('nomnom')
     flag: true,
     help: 'print version and exit',
     callback: function() {
-      var data = require('../package.json');
-      var mailer = require('nodemailer/package.json');
-      return "version " + data.version + ", nodemailer: " + mailer.version;
+      var pkg = require('../package.json');
+      var nodemailerPkg = require('nodemailer/package.json');
+      return "version " + pkg.version + ", nodemailer: " + nodemailerPkg.version;
     }
   })
   .parse();
@@ -97,13 +101,16 @@ var options = require('nomnom')
 // we have a "no ssl" flag, so we need to invert it
 options.useSSL = options.nossl ? false : true;
 
-var Relay = require('../lib');
-var relay = new Relay(options);
+var Mailer = require('../lib').Mailer;
+var mailer = new Mailer(options);
 
 // build the mail data object
 var data = {
   from: options.from,
   to: options.to,
+  cc: options.cc,
+  bcc: options.bcc,
+  replyTo: options.replyTo,
   subject: options.subject,
   text: emailBody || options.bodyText,
   attachments: options.attachment ? options.attachment.map(function (attachment) { return { path: attachment }; }) : null
@@ -115,7 +122,7 @@ if (!options.subject && !data.text) {
   process.exit(1);
 }
 
-relay.sendMail(data, function(err, result) {
+mailer.sendMail(data, function(err, result) {
   if (err) {
     console.error(err);
   }
