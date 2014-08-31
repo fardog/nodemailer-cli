@@ -1,4 +1,4 @@
-# nodemailer-cli 0.1.2
+# nodemailer-cli 0.2.0
 
 A command line interface for sending email, wrapped around [nodemailer][nodemailer]. 
 
@@ -19,7 +19,7 @@ $ nodemailer --help
 
 Usage: nodemailer <to> <from> [bodyText] [options]
 
-to           Email address to send the mail to.
+to           Email address, or comma separated list of email addresses to send mail to.
 from         Email address that the message should be from.
 bodyText     The plaintext message body.
 
@@ -31,9 +31,12 @@ Options:
    -r, --port       The port to use when contacting the SMTP server.  [465]
    -n, --nossl      If set, SSL will not be used when sending mail.
    -j, --subject    The string to be used as the email's subject.
+   --cc             An email address to Carbon Copy. List multiple recipients by appending multiple --cc parameters.
+   --bcc            An email address to Blind Carbon Copy. List multiple recipients by appending multiple -bcc parameters.
+   --replyTo        An email address that should receive replies if a recipient replies to your message.
    --body           A file to use as the message body.
    --attachment     A path to a file that should be attached. List multiple attachments by appending multiple --attachment parameters.
-   --version        print version and exit
+   -v, --version    print version and exit
 ```
 
 ## Environment Variables
@@ -49,6 +52,9 @@ Some environment variables can be used in place of CLI options. CLI options over
 
 
 ## History
+
+- **v0.2.0**  
+Adds additional fields: cc, bcc, replyTo. Allows multiple emails as a comma-separated list in fields where it's sensible.
 
 - **v0.1.2**  
 Adds preferGlobal to the package, to warn if installed locally.
