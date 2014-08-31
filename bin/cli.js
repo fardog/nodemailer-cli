@@ -53,11 +53,13 @@ var options = require('nomnom')
   })
   .option('cc', {
     help: 'An email address to Carbon Copy. List multiple recipients by appending multiple --cc parameters.',
-    callback: validateEmails.bind(this, 'cc', true)
+    callback: validateEmails.bind(this, 'cc', true),
+    list: true
   })
   .option('bcc', {
     help: 'An email address to Blind Carbon Copy. List multiple recipients by appending multiple -bcc parameters.',
-    callback: validateEmails.bind(this, 'bcc', true)
+    callback: validateEmails.bind(this, 'bcc', true),
+    list: true
   })
   .option('replyTo', {
     help: 'An email address that should receive replies if a recipient replies to your message.',
@@ -90,6 +92,7 @@ var options = require('nomnom')
   .option('version', {
     flag: true,
     help: 'print version and exit',
+    abbr: 'v',
     callback: function() {
       var pkg = require('../package.json');
       var nodemailerPkg = require('nodemailer/package.json');
