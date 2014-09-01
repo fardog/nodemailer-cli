@@ -1,8 +1,6 @@
-# nodemailer-cli 0.3.0 [![Build Status](https://travis-ci.org/fardog/nodemailer-cli.svg?branch=master)](https://travis-ci.org/fardog/nodemailer-cli)
+# nodemailer-cli 1.0.0 [![Build Status](https://travis-ci.org/fardog/nodemailer-cli.svg?branch=master)](https://travis-ci.org/fardog/nodemailer-cli)
 
 A command line interface for sending email, wrapped around [nodemailer][nodemailer]. 
-
-This module is not yet for public consumption: it was quickly assembled so I could easily send email from PresSTORE, and its interface mimics those requirements.
 
 ## Installation
 
@@ -52,6 +50,9 @@ Some environment variables can be used in place of CLI options. CLI options over
 
 
 ## History
+
+- **v1.0.0**  
+Adds linter, gulp for running tests.
 
 - **v0.3.0**  
 Adds tests, and moves to a more test-able architecture. Replaces [nomnom][nomnom] with [minimist][minimist], and adds a custom validator for CLI options.
