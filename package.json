@@ -3,12 +3,12 @@
   "version": "0.2.0",
   "description": "A minimal CLI for nodemailer.",
   "main": "index.js",
-	"preferGlobal": true,
+  "preferGlobal": true,
   "bin": {
-    "nodemailer": "./bin/cli.js"
+    "nodemailer": "./bin/nodemailer.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha ./test"
   },
   "repository": {
     "type": "git",
@@ -33,5 +33,10 @@
     "isemail": "^1.1.1",
     "nodemailer": "^1.2.1",
     "nomnom": "^1.8.0"
+  },
+  "devDependencies": {
+    "mocha": "^1.21.4",
+    "nodemailer-stub-transport": "^0.1.4",
+    "should": "^4.0.4"
   }
 }
