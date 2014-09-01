@@ -29,8 +29,6 @@ var emailWithSubjectAndBodyFile = [
   'you@email.com', 'me@email.com', '-j', 'test subject'
 ]
 
-console.log(bodyText);
-
 describe('mailer', function() {
   it('should successfully build an email with attachment', function(done) {
     var cli = new Cli().parse(emailWithAttachment);
