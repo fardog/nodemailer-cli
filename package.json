@@ -43,7 +43,6 @@
     "gulp-mocha": "^1.0.0",
     "jshint-stylish": "^0.4.0",
     "mocha": "^1.21.4",
-    "mocha-better-spec-reporter": "0.0.2",
     "nodemailer-stub-transport": "^0.1.4",
     "should": "^4.0.4"
   }
