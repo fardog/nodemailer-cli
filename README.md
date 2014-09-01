@@ -1,4 +1,4 @@
-# nodemailer-cli 0.2.0
+# nodemailer-cli 0.3.0 [![Build Status](https://travis-ci.org/fardog/nodemailer-cli.svg?branch=master)](https://travis-ci.org/fardog/nodemailer-cli)
 
 A command line interface for sending email, wrapped around [nodemailer][nodemailer]. 
 
@@ -53,6 +53,9 @@ Some environment variables can be used in place of CLI options. CLI options over
 
 ## History
 
+- **v0.3.0**  
+Adds tests, and moves to a more test-able architecture. Replaces [nomnom][nomnom] with [minimist][minimist], and adds a custom validator for CLI options.
+
 - **v0.2.0**  
 Adds additional fields: cc, bcc, replyTo. Allows multiple emails as a comma-separated list in fields where it's sensible.
 
@@ -71,6 +74,8 @@ Initial Release.
 
 
 [nodemailer]: https://github.com/andris9/Nodemailer
+[nomnom]: https://www.npmjs.org/package/nomnom
+[minimist]: https://www.npmjs.org/package/minimist
 
 ## The MIT License (MIT)
 
