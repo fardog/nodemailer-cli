@@ -8,7 +8,7 @@
     "nodemailer": "./bin/nodemailer.js"
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha ./test"
+    "test": "./node_modules/.bin/gulp test"
   },
   "repository": {
     "type": "git",
@@ -37,7 +37,13 @@
     "nodemailer-smtp-transport": "^0.1.12"
   },
   "devDependencies": {
+    "gulp": "^3.8.7",
+    "gulp-jshint": "^1.8.4",
+    "gulp-load-plugins": "^0.6.0",
+    "gulp-mocha": "^1.0.0",
+    "jshint-stylish": "^0.4.0",
     "mocha": "^1.21.4",
+    "mocha-better-spec-reporter": "0.0.2",
     "nodemailer-stub-transport": "^0.1.4",
     "should": "^4.0.4"
   }
