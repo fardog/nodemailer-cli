@@ -2,8 +2,6 @@ var should = require('should');
 var utils = require('../lib/utils.js');
 var validateEmails = utils.validateEmails;
 
-// TODO add test for empty emails
-
 // note that we use isemail internally, so we only test functionality of our wrapper,
 // and not thorough tests of email parsing.
 describe('email validator', function() {
@@ -34,6 +32,14 @@ describe('email validator', function() {
     .forEach(function(emailSet) {
       var invalid = validateEmails('to', false, emailSet);
       invalid.should.be.type('string');
+    });
+  });
+  it('should not allow blank emails', function() {
+    ['', ',', ' '].forEach(function(email) {
+      var invalidSingle = validateEmails('to', false, email);
+      var invalidMultiple = validateEmails('to', true, email);
+      invalidSingle.should.be.type('string')
+      invalidMultiple.should.be.type('string');
     });
   });
 });

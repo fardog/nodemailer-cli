@@ -1,9 +1,6 @@
 var should = require('should');
 var Cli = require('../lib/cli');
 
-// TODO add tests for empty parameters
-// TODO add tests for numeric parameters
-
 describe('cli', function() {
   it('should parse service options correctly', function() {
     var argv = ['--service', 'gmail'];
@@ -94,4 +91,26 @@ describe('cli', function() {
       message.should.equal("version " + pkg.version + ", nodemailer: " + nodemailerPkg.version)
     });
   });
+  it('should not allow an empty parameter where one is needed', function() {
+    [
+      ['you@email.com', 'me@email.com', 'some text', '--cc'],
+      ['you@email.com', 'me@email.com', 'some text', '-t'],
+      ['you@email.com', 'me@email.com', 'some text', '--username'],
+      ['you@email.com', 'me@email.com', 'some text', '--server']
+    ].forEach(function(argv) {
+      var cli = new Cli().parse(argv, function(err, message, options) {
+        err.should.have.length(1);
+      });
+    });
+  });
+  it('should only allow integers for the port parameter', function() {
+    var valid = ['you@email.com', 'me@email.com', 'some text', '--port', '256'];
+    var invalid = ['you@email.com', 'me@email.com', 'some text', '--port', 'bla'];
+
+    var vcli = new Cli().parse(valid);
+    vcli.errors.should.have.length(0);
+
+    var icli = new Cli().parse(invalid);
+    icli.errors.should.have.length(1);
+  })
 });
