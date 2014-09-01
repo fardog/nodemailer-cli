@@ -2,8 +2,6 @@
 
 A command line interface for sending email, wrapped around [nodemailer][nodemailer]. 
 
-This module is not yet for public consumption: it was quickly assembled so I could easily send email from PresSTORE, and its interface mimics those requirements.
-
 ## Installation
 
 Install the module globally to expose the `nodemailer` command to your environment.
