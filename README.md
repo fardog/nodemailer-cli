@@ -28,7 +28,7 @@ Options:
    -u, --username   The SMTP username to use when authenticating.  [local_user_name]
    -p, --password   The plain-text password to use when authenticating.
    -s, --server     The SMTP server that mail will be delivered to.
-   -r, --port       The port to use when contacting the SMTP server.  [465]
+   -r, --port       The port to use when contacting the SMTP server.
    -n, --nossl      If set, SSL will not be used when sending mail.
    -j, --subject    The string to be used as the email's subject.
    --cc             An email address to Carbon Copy. List multiple recipients by appending multiple --cc parameters.
@@ -36,7 +36,7 @@ Options:
    --replyTo        An email address that should receive replies if a recipient replies to your message.
    --body           A file to use as the message body.
    --attachment     A path to a file that should be attached. List multiple attachments by appending multiple --attachment parameters.
-   -v, --version    print version and exit
+   -v, --version    Print version and exit.
 ```
 
 ## Environment Variables
