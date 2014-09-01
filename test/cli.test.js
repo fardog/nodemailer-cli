@@ -1,6 +1,9 @@
 var should = require('should');
 var Cli = require('../lib/cli');
 
+// TODO add tests for empty parameters
+// TODO add tests for numeric parameters
+
 describe('cli', function() {
   it('should parse service options correctly', function() {
     var argv = ['--service', 'gmail'];
@@ -26,6 +29,15 @@ describe('cli', function() {
 
     cli.parsedOptions.nossl.should.equal(true);
     cli.parsedOptions.useSSL.should.equal(false);
+  });
+  it('should fail if SSL isn\'t a flag', function() {
+    var argv = ['--nossl', 'you@gmail.com', 'me@gmail.com', 'subject'];
+    var cli = new Cli().parse(argv);
+
+    cli.parsedOptions.nossl.should.equal(true);
+    cli.parsedOptions.to.should.equal('you@gmail.com');
+    cli.parsedOptions.from.should.equal('me@gmail.com');
+    cli.parsedOptions.bodyText.should.equal('subject');
   });
   it('should accept only one "from" address', function() {
     var argv = ['you@email.com', 'you@email.com, me@email.com', 'body text'];

@@ -2,6 +2,8 @@ var should = require('should');
 var utils = require('../lib/utils.js');
 var validateEmails = utils.validateEmails;
 
+// TODO add test for empty emails
+
 // note that we use isemail internally, so we only test functionality of our wrapper,
 // and not thorough tests of email parsing.
 describe('email validator', function() {
