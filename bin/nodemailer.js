@@ -1,12 +1,13 @@
 #!/usr/bin/env node
 
 var fs = require('fs');
-var colors = require('colors');
+var chalk = require('chalk');
+var error = chalk.bold.red;
 var Cli = require('../lib/cli.js');
 
 var cli = new Cli().parse(process.argv.slice(2), function(err, message, options) {
   if (err) {
-    console.error('\nYou had errors in your syntax. Use --help for further information.'.red);
+    console.error(error('\nYou had errors in your syntax. Use --help for further information.'));
     err.forEach(function (e) {
       console.error(e.message);
     });
