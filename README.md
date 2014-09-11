@@ -1,4 +1,4 @@
-# nodemailer-cli 1.0.1
+# nodemailer-cli v1.0.2
 
 [![Build Status](https://travis-ci.org/fardog/nodemailer-cli.svg?branch=master)](https://travis-ci.org/fardog/nodemailer-cli) [![Dependency Status](https://gemnasium.com/fardog/nodemailer-cli.svg)](https://gemnasium.com/fardog/nodemailer-cli)
 
@@ -53,6 +53,9 @@ Some environment variables can be used in place of CLI options. CLI options over
 
 ## History
 
+- **v1.0.2**  
+Removes [colors][colors] in favor of [chalk][chalk].
+
 - **v1.0.1**  
 Updates dependencies and adds dependency badge.
 
@@ -82,6 +85,8 @@ Initial Release.
 [nodemailer]: https://github.com/andris9/Nodemailer
 [nomnom]: https://www.npmjs.org/package/nomnom
 [minimist]: https://www.npmjs.org/package/minimist
+[colors]: https://www.npmjs.org/package/colors
+[chalk]: https://www.npmjs.org/package/chalk
 
 ## The MIT License (MIT)
 
