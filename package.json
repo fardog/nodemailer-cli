@@ -1,7 +1,7 @@
 {
   "name": "nodemailer-cli",
-  "version": "1.0.0",
-  "description": "A minimal CLI for nodemailer.",
+  "version": "1.0.1",
+  "description": "A command line interface for sending email, wrapped around nodemailer.",
   "main": "index.js",
   "preferGlobal": true,
   "bin": {
@@ -33,7 +33,7 @@
     "colors": "^0.6.2",
     "isemail": "^1.1.1",
     "minimist": "^1.1.0",
-    "nodemailer": "^1.2.1",
+    "nodemailer": "^1.2.2",
     "nodemailer-smtp-transport": "^0.1.12"
   },
   "devDependencies": {

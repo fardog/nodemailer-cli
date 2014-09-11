@@ -1,4 +1,6 @@
-# nodemailer-cli 1.0.0 [![Build Status](https://travis-ci.org/fardog/nodemailer-cli.svg?branch=master)](https://travis-ci.org/fardog/nodemailer-cli)
+# nodemailer-cli 1.0.1
+
+[![Build Status](https://travis-ci.org/fardog/nodemailer-cli.svg?branch=master)](https://travis-ci.org/fardog/nodemailer-cli) [![Dependency Status](https://gemnasium.com/fardog/nodemailer-cli.svg)](https://gemnasium.com/fardog/nodemailer-cli)
 
 A command line interface for sending email, wrapped around [nodemailer][nodemailer]. 
 
@@ -50,6 +52,9 @@ Some environment variables can be used in place of CLI options. CLI options over
 
 
 ## History
+
+- **v1.0.1**  
+Updates dependencies and adds dependency badge.
 
 - **v1.0.0**  
 Adds linter, gulp for running tests.
