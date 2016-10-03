@@ -48,6 +48,7 @@ Some environment variables can be used in place of CLI options. CLI options over
 - **SMTP_USERNAME** The username to use when authenticating.
 - **SMTP_PASSWORD** The password to use when authenticating.
 - **SMTP_USE_SSL** Set this to a truth-y value to use SSL.
+- **SMTP_USE_TLS** Set this to a truth-y value to use TLS (STARTTLS)
 - **SMTP_SERVICE_NAME** This is one of nodemailer's service identifiers, if you want it to configure itself automatically.
 
 
