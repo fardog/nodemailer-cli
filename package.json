@@ -1,6 +1,6 @@
 {
   "name": "nodemailer-cli",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A command line interface for sending email, wrapped around nodemailer.",
   "main": "index.js",
   "preferGlobal": true,
