@@ -53,6 +53,9 @@ Some environment variables can be used in place of CLI options. CLI options over
 
 ## History
 
+- **v1.0.3**  
+Fixes `undefined` being passed for auth when no auth is specified. Thanks to [@mistralol](https://github.com/mistralol).
+
 - **v1.0.2**  
 Removes [colors][colors] in favor of [chalk][chalk].
 
