@@ -1,6 +1,6 @@
 {
   "name": "nodemailer-cli",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "A command line interface for sending email, wrapped around nodemailer.",
   "main": "index.js",
   "preferGlobal": true,
@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/fardog/nodemailer-cli",
   "engines": {
-    "node": ">=0.10.29"
+    "node": ">=4.0.0"
   },
   "keywords": [
     "smtp",

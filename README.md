@@ -1,4 +1,4 @@
-# nodemailer-cli v1.0.2
+# nodemailer-cli v2.0.0
 
 [![Build Status](https://travis-ci.org/fardog/nodemailer-cli.svg?branch=master)](https://travis-ci.org/fardog/nodemailer-cli) [![Dependency Status](https://gemnasium.com/fardog/nodemailer-cli.svg)](https://gemnasium.com/fardog/nodemailer-cli)
 
@@ -53,6 +53,13 @@ Some environment variables can be used in place of CLI options. CLI options over
 
 
 ## History
+
+- **v2.0.0**
+Increased minimum node version to 4
+Added option to ignore STARTTLS
+Added option to ignore certificate
+Fix missing server alias from the command line
+Brind all deps up to current versions
 
 - **v1.0.3**  
 Fixes `undefined` being passed for auth when no auth is specified. Thanks to [@mistralol](https://github.com/mistralol).
