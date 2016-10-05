@@ -1,6 +1,6 @@
 {
   "name": "nodemailer-cli",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "A command line interface for sending email, wrapped around nodemailer.",
   "main": "index.js",
   "preferGlobal": true,
@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/fardog/nodemailer-cli",
   "engines": {
-    "node": ">=0.10.29"
+    "node": ">=4.0.0"
   },
   "keywords": [
     "smtp",
@@ -30,20 +30,21 @@
   "author": "Nathan Wittstock <nate@milkandtang.com>",
   "license": "MIT",
   "dependencies": {
-    "chalk": "^0.5.1",
-    "isemail": "^1.1.1",
+    "chalk": "^1.1.3",
+    "isemail": "^2.2.1",
+    "jshint": "^2.9.3",
     "minimist": "^1.1.0",
-    "nodemailer": "^1.2.2",
-    "nodemailer-smtp-transport": "^0.1.12"
+    "nodemailer": "^2.6.4",
+    "nodemailer-smtp-transport": "^2.7.2"
   },
   "devDependencies": {
     "gulp": "^3.8.7",
-    "gulp-jshint": "^1.8.4",
-    "gulp-load-plugins": "^0.6.0",
-    "gulp-mocha": "^1.0.0",
-    "jshint-stylish": "^0.4.0",
-    "mocha": "^1.21.4",
-    "nodemailer-stub-transport": "^0.1.4",
-    "should": "^4.0.4"
+    "gulp-jshint": "^2.0.1",
+    "gulp-load-plugins": "^1.3.0",
+    "gulp-mocha": "^3.0.1",
+    "jshint-stylish": "^2.2.1",
+    "mocha": "^3.1.0",
+    "nodemailer-stub-transport": "^1.1.0",
+    "should": "^11.1.0"
   }
 }
