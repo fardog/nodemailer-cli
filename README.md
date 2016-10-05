@@ -1,12 +1,14 @@
-# nodemailer-cli v2.0.0
+# nodemailer-cli
 
 [![Build Status](https://travis-ci.org/fardog/nodemailer-cli.svg?branch=master)](https://travis-ci.org/fardog/nodemailer-cli) [![Dependency Status](https://gemnasium.com/fardog/nodemailer-cli.svg)](https://gemnasium.com/fardog/nodemailer-cli)
 
-A command line interface for sending email, wrapped around [nodemailer][nodemailer]. 
+A command line interface for sending email, wrapped
+around [nodemailer][nodemailer].
 
 ## Installation
 
-Install the module globally to expose the `nodemailer` command to your environment.
+Install the module globally to expose the `nodemailer` command to your
+environment.
 
 ```bash
 npm install -g nodemailer-cli
@@ -41,7 +43,9 @@ Options:
 
 ## Environment Variables
 
-Some environment variables can be used in place of CLI options. CLI options override these environment variables, if used, so these can be thought of as defaults.
+Some environment variables can be used in place of CLI options. CLI options
+override these environment variables, if used, so these can be thought of as
+defaults.
 
 - **SMTP_SERVER** The hostname of the SMTP server to be used.
 - **SMTP_PORT** The port on the SMTP server that should be connected to.
@@ -49,55 +53,63 @@ Some environment variables can be used in place of CLI options. CLI options over
 - **SMTP_PASSWORD** The password to use when authenticating.
 - **SMTP_USE_SSL** Set this to a truth-y value to use SSL.
 - **SMTP_USE_TLS** Set this to a truth-y value to use TLS (STARTTLS)
-- **SMTP_SERVICE_NAME** This is one of nodemailer's service identifiers, if you want it to configure itself automatically.
+- **SMTP_SERVICE_NAME** This is one of nodemailer's service identifiers, if you
+  want it to configure itself automatically.
 
 
 ## History
 
-- **v2.0.0**
-Increased minimum node version to 4
-Added option to ignore STARTTLS
-Added option to ignore certificate
-Fix missing server alias from the command line
-Brind all deps up to current versions
+- **v2.0.0** 
+    - Package Updates, fixes — _[@mistralol][]_,
+      [#6](https://github.com/fardog/nodemailer-cli/pull/6)
+        - Increased minimum node version to 4
+        - Added option to ignore STARTTLS
+        - Added option to ignore certificate
+        - Fix missing server alias from the command line
+        - Bring all deps up to current versions
+    - Reformat README — _[@fardog][]_
 
 - **v1.0.3**  
-Fixes `undefined` being passed for auth when no auth is specified. Thanks to [@mistralol](https://github.com/mistralol).
+    - Fixes `undefined` being passed for auth when no auth is specified. Thanks
+      to [@mistralol][].
 
 - **v1.0.2**  
-Removes [colors][colors] in favor of [chalk][chalk].
+    - Removes [colors][colors] in favor of [chalk][chalk].
 
 - **v1.0.1**  
-Updates dependencies and adds dependency badge.
+    - Updates dependencies and adds dependency badge.
 
 - **v1.0.0**  
-Adds linter, gulp for running tests.
+    - Adds linter, gulp for running tests.
 
 - **v0.3.0**  
-Adds tests, and moves to a more test-able architecture. Replaces [nomnom][nomnom] with [minimist][minimist], and adds a custom validator for CLI options.
+    - Adds tests, and moves to a more test-able architecture.
+      Replaces [nomnom][nomnom] with [minimist][minimist], and adds a custom
+      validator for CLI options.
 
 - **v0.2.0**  
-Adds additional fields: cc, bcc, replyTo. Allows multiple emails as a comma-separated list in fields where it's sensible.
+    - Adds additional fields: cc, bcc, replyTo. Allows multiple emails as a
+      comma-separated list in fields where it's sensible.
 
 - **v0.1.2**  
-Adds preferGlobal to the package, to warn if installed locally.
+    - Adds preferGlobal to the package, to warn if installed locally.
 
 - **v0.1.1**  
-Adds flag to print version of cli and nodemailer.
+    - Adds flag to print version of cli and nodemailer.
 
 - **v0.1.0**  
-Cleans up command line switches, and adds support for attachments.
+    - Cleans up command line switches, and adds support for attachments.
 
 - **v0.0.1**  
-Initial Release.
-
-
+    - Initial Release.
 
 [nodemailer]: https://github.com/andris9/Nodemailer
 [nomnom]: https://www.npmjs.org/package/nomnom
 [minimist]: https://www.npmjs.org/package/minimist
 [colors]: https://www.npmjs.org/package/colors
 [chalk]: https://www.npmjs.org/package/chalk
+[@fardog]: https://github.com/fardog
+[@mistralol]: https://github.com/mistralol
 
 ## The MIT License (MIT)
 
