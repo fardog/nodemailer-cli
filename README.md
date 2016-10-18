@@ -59,7 +59,7 @@ defaults.
 
 ## History
 
- **v2.0.0** 
+- **v2.0.0** 
     - Package Updates, fixes — _[@mistralol][]_,
       [#6](https://github.com/fardog/nodemailer-cli/pull/6)
         - Increased minimum node version to 4
