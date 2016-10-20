@@ -59,6 +59,10 @@ defaults.
 
 ## History
 
+- **v2.0.1**
+    - Fixes typo that would cause env vars to be ignored for useTLS —
+	  _[@mistralol][]_
+
 - **v2.0.0** 
     - Package Updates, fixes — _[@mistralol][]_,
       [#6](https://github.com/fardog/nodemailer-cli/pull/6)
