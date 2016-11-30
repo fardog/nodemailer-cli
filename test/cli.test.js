@@ -91,12 +91,23 @@ describe('cli', function() {
       message.should.equal("version " + pkg.version + ", nodemailer: " + nodemailerPkg.version)
     });
   });
+  it('should support attachment', function() {
+    var argv = ['--attachment', '../package.json', 'you@email.com', 'me@email.com', 'body'];
+    var cli = new Cli().parse(argv);
+    cli.errors.should.have.length(0);
+  });
+  it('should support multiple attachments', function() {
+    var argv = ['--attachment', '../package.json', '--attachment', '../index.js', 'you@email.com', 'me@email.com', 'body'];
+    var cli = new Cli().parse(argv);
+    cli.errors.should.have.length(0);
+  });
   it('should not allow an empty parameter where one is needed', function() {
     [
       ['you@email.com', 'me@email.com', 'some text', '--cc'],
       ['you@email.com', 'me@email.com', 'some text', '-t'],
       ['you@email.com', 'me@email.com', 'some text', '--username'],
-      ['you@email.com', 'me@email.com', 'some text', '--server']
+      ['you@email.com', 'me@email.com', 'some text', '--server'],
+      ['you@email.com', 'me@email.com', 'some text', '--attachment']
     ].forEach(function(argv) {
       var cli = new Cli().parse(argv, function(err, message, options) {
         err.should.have.length(1);
