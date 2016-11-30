@@ -59,6 +59,9 @@ defaults.
 
 ## History
 
+- **v2.1.0**
+    - Updates to support multiple `--attachment` parameters — _[@mistralol][]_
+
 - **v2.0.1**
     - Fixes typo that would cause env vars to be ignored for useTLS —
 	  _[@mistralol][]_
