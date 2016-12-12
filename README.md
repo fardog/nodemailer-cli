@@ -59,6 +59,10 @@ defaults.
 
 ## History
 
+- **v2.1.1**
+    - Updates nodemailer dependency — _[@mistralol][]_
+    - Moves devDependencies out of dependencies — _[@fardog][]_
+
 - **v2.1.0**
     - Updates to support multiple `--attachment` parameters — _[@mistralol][]_
 
